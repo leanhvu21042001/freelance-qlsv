@@ -40,6 +40,7 @@ class FacultiesController {
     try {
       const facultyId = req.params.id; // Giả sử ID khoa được truyền qua đường dẫn
       const result = await facultiesService.show(facultyId);
+      if (!result) throw new Error("Not found");
       res.status(200).json({ success: true, data: result });
     } catch (error) {
       next(error);
