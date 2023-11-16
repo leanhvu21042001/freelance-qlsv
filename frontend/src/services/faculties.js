@@ -2,13 +2,9 @@
 import request from "./request";
 
 class FacultiesService {
-  constructor() {
-    this.baseURL = "/faculties"; // Adjust the base URL according to your backend API endpoint
-  }
-
   async create(facultyData) {
     try {
-      const response = await request.post(`${this.baseURL}`, facultyData);
+      const response = await request.post(`/faculties`, facultyData);
       return response.data;
     } catch (error) {
       console.error("Error creating faculty:", error);
@@ -18,7 +14,7 @@ class FacultiesService {
 
   async delete(facultyId) {
     try {
-      const response = await request.delete(`${this.baseURL}/${facultyId}`);
+      const response = await request.delete(`/faculties/${facultyId}`);
       return response.data;
     } catch (error) {
       console.error("Error deleting faculty:", error);
@@ -29,7 +25,7 @@ class FacultiesService {
   async update(facultyId, facultyData) {
     try {
       const response = await request.put(
-        `${this.baseURL}/${facultyId}`,
+        `/faculties/${facultyId}`,
         facultyData
       );
       return response.data;
@@ -41,7 +37,7 @@ class FacultiesService {
 
   async show(facultyId) {
     try {
-      const response = await request.get(`${this.baseURL}/${facultyId}`);
+      const response = await request.get(`/faculties/${facultyId}`);
       return response.data;
     } catch (error) {
       console.error("Error fetching faculty:", error);
@@ -51,7 +47,8 @@ class FacultiesService {
 
   async list() {
     try {
-      const response = await request.get(`${this.baseURL}`);
+      const response = await request.get(`/faculties`);
+
       return response.data;
     } catch (error) {
       console.error("Error fetching faculties:", error);
@@ -61,9 +58,7 @@ class FacultiesService {
 
   async softDelete(facultyId) {
     try {
-      const response = await request.put(
-        `${this.baseURL}/soft-delete/${facultyId}`
-      );
+      const response = await request.put(`/faculties/soft-delete/${facultyId}`);
       return response.data;
     } catch (error) {
       console.error("Error soft deleting faculty:", error);

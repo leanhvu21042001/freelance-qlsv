@@ -22,7 +22,7 @@ request.interceptors.response.use(
     return response.data;
   },
   (error) => {
-    Promise.reject(error);
+    return Promise.reject(error?.response?.data || "Something went wrong");
   }
 );
 
