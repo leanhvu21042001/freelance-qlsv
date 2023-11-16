@@ -39,7 +39,11 @@ class ClassesService {
 
   // Liệt kê tất cả các lớp học
   async list() {
-    return knex("classes").select("*").where({ is_deleted: false });
+    return knex("classes")
+      .select("*")
+      .leftJoin("faculties", "faculties.faculty_id", "=", "classes.faculty_id")
+      .where("classes.is_deleted", false)
+      .options({ nestTables: true });
   }
 
   // Xóa mềm lớp học dựa trên ID

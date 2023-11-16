@@ -3,13 +3,9 @@
 import request from "./request";
 
 class ClassesService {
-  constructor() {
-    this.baseURL = "/classes";
-  }
-
   async create(className, facultyId) {
     try {
-      const response = await request.post(this.baseURL, {
+      const response = await request.post("/classes", {
         className,
         facultyId,
       });
@@ -22,7 +18,7 @@ class ClassesService {
 
   async delete(classId) {
     try {
-      const response = await request.delete(`${this.baseURL}/${classId}`);
+      const response = await request.delete(`/classes/${classId}`);
       return response.data;
     } catch (error) {
       console.error("Error deleting class:", error);
@@ -32,7 +28,7 @@ class ClassesService {
 
   async update(classId, className, facultyId) {
     try {
-      const response = await request.put(`${this.baseURL}/${classId}`, {
+      const response = await request.put(`/classes/${classId}`, {
         className,
         facultyId,
       });
@@ -45,7 +41,7 @@ class ClassesService {
 
   async show(classId) {
     try {
-      const response = await request.get(`${this.baseURL}/${classId}`);
+      const response = await request.get(`/classes/${classId}`);
       return response.data;
     } catch (error) {
       console.error("Error fetching class:", error);
@@ -55,7 +51,7 @@ class ClassesService {
 
   async list() {
     try {
-      const response = await request.get(this.baseURL);
+      const response = await request.get("/classes");
       return response.data;
     } catch (error) {
       console.error("Error fetching classes:", error);
@@ -65,9 +61,7 @@ class ClassesService {
 
   async softDelete(classId) {
     try {
-      const response = await request.put(
-        `${this.baseURL}/soft-delete/${classId}`
-      );
+      const response = await request.put(`/classes/soft-delete/${classId}`);
       return response.data;
     } catch (error) {
       console.error("Error soft deleting class:", error);

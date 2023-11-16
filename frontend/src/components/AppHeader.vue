@@ -57,42 +57,6 @@
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Students
-              </a>
-              <ul
-                class="dropdown-menu fs-5 fw-bold"
-                aria-labelledby="navbarDropdown"
-              >
-                <li>
-                  <router-link
-                    class="dropdown-item"
-                    aria-current="page"
-                    to="/students"
-                    >List
-                  </router-link>
-                </li>
-
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <router-link
-                    class="dropdown-item"
-                    aria-current="page"
-                    to="/students/create"
-                    >Create
-                  </router-link>
-                </li>
-              </ul>
-            </li>
-
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
                 Classes
               </a>
               <ul
@@ -114,6 +78,42 @@
                     class="dropdown-item"
                     aria-current="page"
                     to="/classes/create"
+                    >Create
+                  </router-link>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Students
+              </a>
+              <ul
+                class="dropdown-menu fs-5 fw-bold"
+                aria-labelledby="navbarDropdown"
+              >
+                <li>
+                  <router-link
+                    class="dropdown-item"
+                    aria-current="page"
+                    to="/students"
+                    >List
+                  </router-link>
+                </li>
+
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <router-link
+                    class="dropdown-item"
+                    aria-current="page"
+                    to="/students/create"
                     >Create
                   </router-link>
                 </li>
