@@ -2,13 +2,9 @@
 import request from "./request";
 
 class StudentsService {
-  constructor() {
-    this.baseURL = "/students"; // Adjust the base URL according to your backend API endpoint
-  }
-
   async create(name, dob, gender, email, classId, facultyId) {
     try {
-      const response = await request.post(`${this.baseURL}`, {
+      const response = await request.post(`/students`, {
         name,
         dob,
         gender,
@@ -25,7 +21,7 @@ class StudentsService {
 
   async delete(studentId) {
     try {
-      const response = await request.delete(`${this.baseURL}/${studentId}`);
+      const response = await request.delete(`/students/${studentId}`);
       return response.data;
     } catch (error) {
       console.error("Error deleting student:", error);
@@ -35,7 +31,7 @@ class StudentsService {
 
   async update(studentId, name, dob, gender, email, classId, facultyId) {
     try {
-      const response = await request.put(`${this.baseURL}/${studentId}`, {
+      const response = await request.put(`/students/${studentId}`, {
         name,
         dob,
         gender,
@@ -52,7 +48,7 @@ class StudentsService {
 
   async show(studentId) {
     try {
-      const response = await request.get(`${this.baseURL}/${studentId}`);
+      const response = await request.get(`/students/${studentId}`);
       return response.data;
     } catch (error) {
       console.error("Error fetching student:", error);
@@ -62,7 +58,7 @@ class StudentsService {
 
   async list() {
     try {
-      const response = await request.get(`${this.baseURL}`);
+      const response = await request.get(`/students`);
       return response.data;
     } catch (error) {
       console.error("Error fetching students:", error);
@@ -72,9 +68,7 @@ class StudentsService {
 
   async softDelete(studentId) {
     try {
-      const response = await request.put(
-        `${this.baseURL}/soft-delete/${studentId}`
-      );
+      const response = await request.put(`/students/soft-delete/${studentId}`);
       return response.data;
     } catch (error) {
       console.error("Error soft deleting student:", error);
