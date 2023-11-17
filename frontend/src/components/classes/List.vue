@@ -44,14 +44,14 @@ const handleDelete = (classId) => mutate(classId);
             <td>{{ moment(classItem.created_at).format("DD/MM/YYYY") }}</td>
             <td>
               <button
-                @click="() => handleDelete(classItem.class_id)"
+                @click="() => handleDelete(classItem.classes.class_id)"
                 class="btn btn-danger"
               >
                 Delete
               </button>
               <router-link
                 class="btn btn-warning ms-2"
-                :to="`/classes/edit/${classItem.class_id}`"
+                :to="`/classes/edit/${classItem.classes.class_id}`"
               >
                 Edit
               </router-link>
